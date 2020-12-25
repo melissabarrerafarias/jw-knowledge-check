@@ -119,7 +119,7 @@ const easyQuestions = [
     {
         question: "1. ¿En que orden creo Jehová?", 
         choices: ["Peces y aves, animales terrestres, ser humano", "Animales terrestres, peces y aves, ser humano", "Ser humano, animales terrestres, peces y aves", "Ser humano, peces y aves, animales terrestres"], 
-        answer: "Peces y aves, animal terrestres, ser humano"
+        answer: "Peces y aves, animales terrestres, ser humano"
     },
     {
         question: "2. ¿Cual es el tercer libro de la Biblia?", 
