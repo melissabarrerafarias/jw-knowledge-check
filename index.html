@@ -1,33 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Goudy+Bookletter+1911&family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Goudy+Bookletter+1911&family=Roboto&display=swap"
+        rel="stylesheet">
     <script src="https://kit.fontawesome.com/e8bd13e220.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel = "stylesheet" href = "assets/css/styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/styles.css">
     <title>Bible Quiz</title>
 </head>
+
 <body>
     <div class="jumbotron jumbotron-fluid background-header">
         <div class="container">
-          <h1 class="display-4 text-center heading-title">Bible Quiz</h1>
-          <p class="lead text-center heading-lead">Este es un juego Biblico solo para divertirnos un poco!</p>
-          <p class = "lead text-center heading-lead">Por favor no comparta el enlance... solo es para entre nosotros!</p>
-          <p class = "lead text-center heading-lead">De nuevo, solo es para divertirnos :)</p>
+            <h1 class="display-4 text-center heading-title">Bible Quiz</h1>
+            <p class="lead text-center heading-lead">Este es un juego Biblico solo para divertirnos un poco!</p>
+            <p class="lead text-center heading-lead">Por favor no comparta el enlance... solo es para entre nosotros!
+            </p>
+            <p id="timerShow" class="lead text-center heading-lead">De nuevo, solo es para divertirnos :)</p>
         </div>
-      </div>
-
-      <div id = "rules" class = "text-center"> 
-        <p class = "rules-text">Las reglas son las siguientes: </p>
-        <p class = "rules-text">Tendra dos minutos para contestar 10 preguntas biblicas.</p>
-        <p class = "rules-text">Cada vez que se equivoque, se le quitaran 10 segundos de su tiempo y 5 puntos deducidos de su puntuación.</p>
-        <p class = "rules-text">No se sienta mal si no tiene muchos puntos al final... quizas ahora sabe de que se va tratar su siguiente estudio personal :P</p>
     </div>
-    <div class = "text-center">
-    <button type="button" class="btn btn-lg btn-outline-info mt-4" id = "start"><i class="fas fa-play"></i></button>
+
+    <div id="rules" class="text-center">
+        <p class="rules-text">Las reglas son las siguientes: </p>
+        <p class="rules-text">Tendra dos minutos para contestar 10 preguntas biblicas.</p>
+        <p class="rules-text">Cada vez que se equivoque, se le quitaran 10 segundos de su tiempo y 5 puntos deducidos de
+            su puntuación.</p>
+        <p class="rules-text">No se sienta mal si no tiene muchos puntos al final... quizas ahora sabe de que se va
+            tratar su siguiente estudio personal :P</p>
+    </div>
+    <div class="text-center">
+        <button type="button" class="btn btn-lg btn-outline-info mt-4" id="start"><i class="fas fa-play"></i></button>
+    </div>
+    </div>
+    <div id="scoreContainer" class="text-center">
     </div>
 </body>
-<script src = "assets/js/script.js"></script>
+<script src="assets/js/script.js"></script>
+
 </html>

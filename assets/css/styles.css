@@ -13,5 +13,31 @@
 
 .rules-text {
     font-family: "Roboto";
+    font-size: 20px;
+}
+
+.choose-who-text {
+    font-family: 'Roboto', cursive;
+    font-size: 25px;
+}
+
+.question-text {
+    font-family: "Goudy Bookletter 1911";
+    font-size: 20px;
+    display: inline-block;
+}
+
+.question-choices {
+    font-family: "Goudy Bookletter 1911";
     font-size: 15px;
 }
+
+
+.display-none {
+    display: none;
+}
+
+
+/* .display {
+    display: block;
+} */
