@@ -64,54 +64,54 @@ const kidsQuestions = [
 // teachers bootcamp
 const teachersBootcamp = [
     {
-        question: "", 
-        choices: [""], 
-        answer: ""
+        question: "1. ¿Cual NO es una lección en el libro “Maestros”? ", 
+        choices: ["Hablar con naturalidad", "Modular la voz", "Hablar con sencillez", "Introducir bien una revista"], 
+        answer: "Introducir bien una revista"
     },
     {
-        question: "", 
-        choices: [""], 
-        answer: ""
+        question: "2. ¿Cuántos tratados hay en el kit de enseñanza? ", 
+        choices: ["9", "8", "10", "7"], 
+        answer: "9"
     },
     {
-        question: "", 
-        choices: [""], 
-        answer: ""
+        question: "3. ¿Cuantas Atalayas recibimos para el público cada año? ", 
+        choices: ["6", "3", "12", "4"], 
+        answer: "3"
     },
     {
-        question: "", 
-        choices: [""], 
-        answer: ""
+        question: "4. ¿Cuantas preguntas se hacen cuando alguien quiere ser publicador no bautizado? ", 
+        choices: ["10", "8", "20", "15"], 
+        answer: "10"
     },
     {
-        question: "", 
-        choices: [""], 
-        answer: ""
+        question: "5. ¿Cuantas horas predica un precursor regular? ", 
+        choices: ["50", "60", "70", "120"], 
+        answer: "70"
     },
     {
-        question: "", 
-        choices: [""], 
-        answer: ""
+        question: "6. ¿Cual es el tema central de la Biblia? ", 
+        choices: ["Jesus", "El Reino", "La vida eterna", "La descendencia prometida"], 
+        answer: "El Reino"
     },
     {
-        question: "", 
-        choices: [""], 
-        answer: ""
+        question: "7. ¿Que texto usaría para mostrar que el Reino eliminará las enfermedades? ", 
+        choices: ["Apocalipsis 4:11", "Isaías 23:14", "Isaías 33:24", "Mateo 22:21"], 
+        answer: "Isaías 33:24 "
     },
     {
-        question: "", 
-        choices: [""], 
-        answer: ""
+        question: "8. ¿Cuantas lecciones hay en el folleto 'Buenas noticias'?", 
+        choices: ["14", "15", "16", "10"], 
+        answer: "15"
     },
     {
-        question: "", 
-        choices: [""], 
-        answer: ""
+        question: "9. ¿Que folleto usaría para los que no saben leer?", 
+        choices: ["Escuche a Dios y vivirá para siempre", "Escuche a Dios", "De padres a hijos", "Introducción a la Palabra de Dios"], 
+        answer: "Escuche a Dios"
     },
     {
-        question: "", 
-        choices: [""], 
-        answer: ""
+        question: "10. ¿Cual de estos textos muestra que Jehová es el nombre de Dios?", 
+        choices: ["Salmos 83:17", "Genesis 3:16", "Lucas 15:7", "Isaías 42:8"], 
+        answer: "Isaías 42:8"
     }
 ]
 
