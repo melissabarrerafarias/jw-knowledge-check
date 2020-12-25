@@ -113,7 +113,60 @@ const teachersQuestions = [
         choices: ["Salmos 83:17", "Genesis 3:16", "Lucas 15:7", "Isaías 42:8"], 
         answer: "Isaías 42:8"
     }
-]
+];
+
+const easyQuestions = [
+    {
+        question: "1. ¿En que orden creo Jehová?", 
+        choices: ["Peces y aves, animales terrestres, ser humano", "Animales terrestres, peces y aves, ser humano", "Ser humano, animales terrestres, peces y aves", "Ser humano, peces y aves, animales terrestres"], 
+        answer: "Peces y aves, animal terrestres, ser humano"
+    },
+    {
+        question: "2. ¿Cual es el tercer libro de la Biblia?", 
+        choices: ["Deuteronomio", "Exodo", "Levítico", "Números"], 
+        answer: "Levítico"
+    },
+    {
+        question: "3. ¿Cual fue la primera cuidad Cananea que conquistaron los israelitas?", 
+        choices: ["Gabaón", "Hai", "Guilgal", "Jericó"], 
+        answer: "Jericó"
+    },
+    {
+        question: "4. ¿Donde estaba la Tierra Prometida?", 
+        choices: ["Belen", "Canaán", "Egipto", "Jerusalen"], 
+        answer: "Canaán"
+    },
+    {
+        question: "5. ¿Cuántos sobrevivieron el diluvio?", 
+        choices: ["8", "7", "9", "10"], 
+        answer: "8"
+    },
+    {
+        question: "6. ¿Cuantos apóstoles se llamaban Santiago?", 
+        choices: ["1", "3", "2", "0"], 
+        answer: "2"
+    },
+    {
+        question: "7. ¿Cual era el primer mandamiento de los 10 mandamientos?", 
+        choices: ["'No debes tener otros dioses contra mi rostro'", "'No debes hacerte una imagen tallada [..], ni debes inclinarte ante ellas ni servirles'", "'No debes tomar el nombre de Jehová tu Dios de manera indigna'", "'Honra a tu padre y a tu madre'"], 
+        answer: "'No debes tener otros dioses contra mi rostro'"
+    },
+    {
+        question: "8. ¿Cual es el penúltimo libro de la Biblia?", 
+        choices: ["Santiago", "3 Juan", "Judas", "Apocalipsis"], 
+        answer: "Judas"
+    },
+    {
+        question: "9. ¿Cual fue la primera plaga que mando Jehová contra Egipto?", 
+        choices: ["Ranas", "Granizo", "Mosquitos", "Agua convertida en sangre"], 
+        answer: "Agua convertida en sangre"
+    },
+    {
+        question: "10. ¿Quien NO era un apóstol de Jesús?", 
+        choices: ["Alfeo", "Tadeo", "Felipe", "Simón"], 
+        answer: "Alfeo"
+    },
+];
 
 const startBtn = document.getElementById("start");
 const rules = document.getElementById("rules");
@@ -147,7 +200,6 @@ playAgainBtn.textContent = "Vuelve al menú principal";
 
 
 function chooseQuiz() {
-    console.log("hey this is still working");
     startBtn.className = "display-none";
     rules.innerHTML = "";
     headerText.className = "display-none";
@@ -158,15 +210,18 @@ function chooseQuiz() {
 
     const kidsBtn = document.createElement("button");
     const teachersBtn = document.createElement("button");
+    const easyBtn = document.createElement("button");
 
     kidsBtn.textContent = "Para los Niños";
     teachersBtn.textContent = "Seamos Buenos Maestros!";
+    easyBtn.textContent = "Facil!";
 
-    kidsBtn.className = "btn btn-lg btn-outline-info m-5 choose-quiz";
-    teachersBtn.className = "btn btn-lg btn-outline-info m-5 choose-quiz";
+    kidsBtn.className = "btn btn-lg btn-outline-info m-3 choose-quiz";
+    teachersBtn.className = "btn btn-lg btn-outline-info m-3 choose-quiz";
+    easyBtn.className = "btn btn-lg btn-outline-info m-3 choose-quiz";
     
 
-    rules.append(chooseWho, kidsBtn, teachersBtn);
+    rules.append(chooseWho, kidsBtn, teachersBtn, easyBtn);
 
     kidsBtn.addEventListener("click", function () {
         let timer = setInterval(function () {
@@ -200,6 +255,23 @@ function chooseQuiz() {
             }
         }, 1000);
         teachersQuiz();
+    });
+
+    easyBtn.addEventListener("click", function () {
+        let timer = setInterval(function () {
+            count--;
+            seconds.textContent = "Segundos: " + count;
+            timerShow.appendChild(seconds);
+
+            currentScore.textContent = `Puntaje : ${score}`;
+            timerShow.appendChild(currentScore);
+            if (count < 1) {
+                endQuiz();
+                clearInterval(timer);
+                console.log("the game has ended");
+            }
+        }, 1000);
+        easyQuiz();
     });
 };
 
@@ -285,6 +357,50 @@ function teachersCheckAnswer(event) {
 
     if (currentQuestion < teachersQuestions.length) {
        teachersQuiz();
+    }
+
+    else {
+        console.log("the game has ended!");
+        endQuiz();
+    }
+};
+
+easyQuiz = function () {
+    rules.innerHTML = '';
+
+    let question = easyQuestions[currentQuestion];
+
+    rules.appendChild(questionDisplay);
+
+    for (i = 0; i < question.choices.length; i++) {
+        questionDisplay.textContent = question.question;
+
+        let answersBtn = document.createElement("button");
+        answersBtn.className = "question-choices btn btn-lg btn-outline-dark m-2 col-4";
+        answersBtn.textContent = question.choices[i];
+        rules.append(answersBtn);
+        answersBtn.addEventListener("click", easyCheckAnswer);
+    };
+}
+
+function easyCheckAnswer(event) {
+    let chosenAnswer = event.target.textContent;
+    console.log({ chosenAnswer });
+
+    if (chosenAnswer === easyQuestions[currentQuestion].answer) {
+        console.log("correct!");
+        addPoints();
+    }
+
+    else {
+        console.log("incorrect!");
+        removePoints();
+        appendTime();
+    }
+    currentQuestion++;
+
+    if (currentQuestion < easyQuestions.length) {
+       easyQuiz();
     }
 
     else {
