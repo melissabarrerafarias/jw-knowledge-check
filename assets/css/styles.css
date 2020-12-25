@@ -21,6 +21,11 @@
     font-size: 25px;
 }
 
+.choose-quiz {
+    font-family: 'Roboto';
+    font-size: 15px;
+}
+
 .question-text {
     font-family: "Goudy Bookletter 1911";
     font-size: 20px;
@@ -35,6 +40,12 @@
 
 .display-none {
     display: none;
+}
+
+.timer-text {
+    font-family: 'Roboto';
+    font-weight: bold;
+    font-size: 25px;
 }
 
 

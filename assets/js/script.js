@@ -62,7 +62,7 @@ const kidsQuestions = [
 ];
 
 // teachers bootcamp
-const teachersBootcamp = [
+const teachersQuestions = [
     {
         question: "1. ¿Cual NO es una lección en el libro “Maestros”? ", 
         choices: ["Hablar con naturalidad", "Modular la voz", "Hablar con sencillez", "Introducir bien una revista"], 
@@ -117,18 +117,19 @@ const teachersBootcamp = [
 
 const startBtn = document.getElementById("start");
 const rules = document.getElementById("rules");
+const headerText = document.getElementById("header-text");
 const timerShow = document.getElementById("timerShow");
 
 // timer variables
 const seconds = document.createElement("p");
-seconds.className = "rules-text mt-3";
+seconds.className = "timer-text mt-4";
 let count = 120;
 
 // score variable
 let score = 0;
 
 const currentScore = document.createElement("p");
-currentScore.className = "rules-text mt-3";
+currentScore.className = "timer-text mt-4";
 
 // display question
 
@@ -141,7 +142,7 @@ const scoreDiv = document.getElementById("scoreContainer");
 
 // play again ??
 const playAgainBtn = document.createElement("button");
-playAgainBtn.className = "btn btn-lg btn-outline-success mt-4 question-choices";
+playAgainBtn.className = "btn btn-lg btn-outline-primary mt-4 question-choices";
 playAgainBtn.textContent = "Vuelve al menú principal";
 
 
@@ -149,19 +150,23 @@ function chooseQuiz() {
     console.log("hey this is still working");
     startBtn.className = "display-none";
     rules.innerHTML = "";
+    headerText.className = "display-none";
 
     const chooseWho = document.createElement("p");
     chooseWho.textContent = "Escoja cual examen quiere tomar:"
     chooseWho.className = "choose-who-text";
 
     const kidsBtn = document.createElement("button");
+    const teachersBtn = document.createElement("button");
 
-    kidsBtn.textContent = "Examen para niños";
+    kidsBtn.textContent = "Para los Niños";
+    teachersBtn.textContent = "Seamos Buenos Maestros!";
 
-    kidsBtn.className = "btn btn-lg btn-outline-info m-5 choose-who-text";
+    kidsBtn.className = "btn btn-lg btn-outline-info m-5 choose-quiz";
+    teachersBtn.className = "btn btn-lg btn-outline-info m-5 choose-quiz";
     
 
-    rules.append(chooseWho, kidsBtn);
+    rules.append(chooseWho, kidsBtn, teachersBtn);
 
     kidsBtn.addEventListener("click", function () {
         let timer = setInterval(function () {
@@ -179,13 +184,30 @@ function chooseQuiz() {
         }, 1000);
         kidsQuiz();
     });
+
+    teachersBtn.addEventListener("click", function () {
+        let timer = setInterval(function () {
+            count--;
+            seconds.textContent = "Segundos: " + count;
+            timerShow.appendChild(seconds);
+
+            currentScore.textContent = `Puntaje : ${score}`;
+            timerShow.appendChild(currentScore);
+            if (count < 1) {
+                endQuiz();
+                clearInterval(timer);
+                console.log("the game has ended");
+            }
+        }, 1000);
+        teachersQuiz();
+    });
 };
 
-// chris quiz
+// kids quiz
 kidsQuiz = function () {
     rules.innerHTML = '';
 
-    let question =kidsQuestions[currentQuestion];
+    let question = kidsQuestions[currentQuestion];
 
     rules.appendChild(questionDisplay);
 
@@ -218,6 +240,51 @@ function kidsCheckAnswer(event) {
 
     if (currentQuestion < kidsQuestions.length) {
        kidsQuiz();
+    }
+
+    else {
+        console.log("the game has ended!");
+        endQuiz();
+    }
+};
+
+// kids quiz
+teachersQuiz = function () {
+    rules.innerHTML = '';
+
+    let question = teachersQuestions[currentQuestion];
+
+    rules.appendChild(questionDisplay);
+
+    for (i = 0; i < question.choices.length; i++) {
+        questionDisplay.textContent = question.question;
+
+        let answersBtn = document.createElement("button");
+        answersBtn.className = "question-choices btn btn-lg btn-outline-dark m-2 col-4";
+        answersBtn.textContent = question.choices[i];
+        rules.append(answersBtn);
+        answersBtn.addEventListener("click", teachersCheckAnswer);
+    };
+}
+
+function teachersCheckAnswer(event) {
+    let chosenAnswer = event.target.textContent;
+    console.log({ chosenAnswer });
+
+    if (chosenAnswer === teachersQuestions[currentQuestion].answer) {
+        console.log("correct!");
+        addPoints();
+    }
+
+    else {
+        console.log("incorrect!");
+        removePoints();
+        appendTime();
+    }
+    currentQuestion++;
+
+    if (currentQuestion < teachersQuestions.length) {
+       teachersQuiz();
     }
 
     else {
